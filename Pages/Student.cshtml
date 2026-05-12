@@ -1,0 +1,31 @@
+@page 
+@model StudentModel 
+<h1 class="mb-3"> Studel List</h1> 
+<div class=" d-flex justify-content-end mb-3"> 
+<a href="Register" class="btn btn-success ">Add New Student</a> 
+</div> 
+<div class="container table-responsive"> 
+<table class="table table-bordered table-striped text-center table-responsive" > 
+<thead class="table-dark"> 
+<tr> 
+<th>ID</th> 
+<th>Name</th> 
+<th>Address</th> 
+<th>Date</th> 
+<th>Gender</th> 
+<th>Action</th> 
+</tr> 
+</thead> 
+<tbody>    
+@foreach (var student in Model.Students){ 
+                <tr> 
+                    <td>@student.ID</td> 
+                    <td>@student.Name</td> 
+                    <td>@student.Email</td> 
+                    <td>@student.Department</td> 
+                    <td>@student.Age</td> 
+                    <td><a asp-page="Edit" asp-route-id="@student.ID" class="btn btn-primary btn-sm">Edit</a> 
+                        <a asp-page="Delete" asp-route-id="@student.ID" class="btn btn-danger btn-sm">Delete</a> 
+                    </td> </tr>} 
+</tbody></table> 
+</div>
